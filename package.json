@@ -1,0 +1,28 @@
+{
+  "name": "nice-with-the-dice",
+  "version": "1.0.0",
+  "description": "both need to be able to access link and play it at same time",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Poseyd29/nice-with-the-dice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Poseyd29/nice-with-the-dice/issues"
+  },
+  "homepage": "https://github.com/Poseyd29/nice-with-the-dice#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
