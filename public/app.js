@@ -6,7 +6,7 @@ let infoDisplay = document.querySelector('.info')
 let oneScore = document.querySelector('.playerOneScore')
 let twoScore = document.querySelector('.playerTwoScore')
 let startButton = document.querySelector('.start-game')
-let rollButton = document.querySelector('.start-game')
+let rollButton = document.querySelector('.roll-dice')
 
 
 
