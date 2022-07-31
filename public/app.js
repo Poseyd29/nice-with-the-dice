@@ -7,6 +7,9 @@ let oneScore = document.querySelector('.playerOneScore')
 let twoScore = document.querySelector('.playerTwoScore')
 let startButton = document.querySelector('.start-game')
 let rollButton = document.querySelector('.roll-dice')
+let username = document.querySelector('.username')
+let password = document.querySelector('.password')
+let submitButton = document.querySelector('.submit')
 
 
 
@@ -15,6 +18,22 @@ let rollButton = document.querySelector('.roll-dice')
 
 startButton.addEventListener('click', startGame)
 rollButton.addEventListener('click', rollDice)
+submitButton.addEventListener('click', userInput)
+
+function userInput() {
+    if (username === "") {
+        return
+    } else {
+        app.post('', (req, res) => {
+            usernameCollection.insertOne(req.body)
+                .then(result => {
+                    console.log(result)
+                })
+                .catch(error => console.error(error))
+        })
+    }
+}
+
 
 function startGame() {
 

@@ -1,4 +1,6 @@
 const express = require('express');
+const bodyParser = require('body-parser')
+const mongo = require('mongodb');
 const path = require('path');
 const http = require('http');
 const PORT = process.env.PORT || 8081;
@@ -6,6 +8,35 @@ const socketio = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const uri = "mongodb+srv://nicewithdice:passdice@cluster0.pt6ws.mongodb.net/?retryWrites=true&w=majority";
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html')
+})
+
+// app.post('/info', (req, res) => {
+//     console.log('Hellooooooooooooooooo!')
+// })
+
+let MongoClient = require('mongodb').MongoClient;
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+
+MongoClient.connect(uri, { useUnifiedTopology: true })
+    .then(client => {
+        console.log('Connected to Database')
+        const db = client.db('nice-with-dice')
+        const usernameCollection = db.collection('player-info')
+
+        app.post('/info', (req, res) => {
+            usernameCollection.insertOne(req.body)
+                .then(result => {
+                    res.redirect('/')
+                })
+                .catch(error => console.error(error))
+        })
+    })
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")))

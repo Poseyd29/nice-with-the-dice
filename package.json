@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/Poseyd29/nice-with-the-dice#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.18.1",
+    "mongodb": "^4.8.1",
     "socket.io": "^4.5.1"
   },
   "devDependencies": {

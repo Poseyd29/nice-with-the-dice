@@ -5,11 +5,12 @@ both need to be able to access link and play it at same time
 first focus on getting multiplayeer working 
 
 
-locale storagee to save session 
+locale storagee to save game session 
 
 need something to state user started game 
 
-mongoDB for data persistence on server side
+mongoDB for data persistence on server side, when players scores are finished calculated they should be entered into the database, sorted by highest score
+
 
 node.js
 
